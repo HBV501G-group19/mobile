@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Hopon</string>
+    <string name="page_rides">Rides</string>
+    <string name="page_map">Hopon</string>
+    <string name="page_messages">Messages</string>
+</resources>
