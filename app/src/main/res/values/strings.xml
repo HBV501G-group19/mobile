@@ -3,4 +3,9 @@
     <string name="page_rides">Rides</string>
     <string name="page_map">Hopon</string>
     <string name="page_messages">Messages</string>
+    <string name="ride_to">To: </string>
+    <string name="ride_from">From: </string>
+    <string name="ride_in">In </string>
+    <string name="ride_minutes">minutes</string>
+    <string name="ride_youre_driving">You\'re driving</string>
 </resources>

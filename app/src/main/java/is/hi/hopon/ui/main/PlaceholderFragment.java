@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import is.hi.hopon.R;
-
+import is.hi.hopon.ui.main.PageViewModel;
 /**
  * A placeholder fragment containing a simple view.
  */
