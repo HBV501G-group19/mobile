@@ -27,7 +27,6 @@ public class Model {
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Field {
         String name() default "";
-
         boolean required() default false;
     }
 
