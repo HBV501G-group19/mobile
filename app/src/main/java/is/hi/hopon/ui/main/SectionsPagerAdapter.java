@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import is.hi.hopon.HoponContext;
 import is.hi.hopon.R;
 import is.hi.hopon.ui.message.MessageBoardActivity;
+import is.hi.hopon.ui.main.PlaceholderFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
