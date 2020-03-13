@@ -3,4 +3,10 @@
     <string name="page_rides">Rides</string>
     <string name="page_map">Hopon</string>
     <string name="page_messages">Messages</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="prompt_username">Username</string>
+    <string name="login_failed">Login failed</string>
+    <string name="invalid_username">Invalid Username</string>
+    <string name="invalid_password">Invalid Password</string>
 </resources>
