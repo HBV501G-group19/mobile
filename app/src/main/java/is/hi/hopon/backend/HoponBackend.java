@@ -4,6 +4,7 @@ package is.hi.hopon.backend;
 
 import android.util.Log;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -84,12 +85,11 @@ public class HoponBackend {
                 if(requireAuthentication) {
                     String bearer = "Bearer " + HoponContext.getInstance().getUser().getToken();
                     headers.put("Authorization", bearer);
-                    Log.i("HLOG/hoponHeaders", bearer);
                 }
                 return headers;
             }
         };
-
+        //request.setRetryPolicy(new DefaultRetryPolicy(10000000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         HoponContext.getInstance().getWebQueue().enqueue(request);
     }
 
@@ -98,10 +98,9 @@ public class HoponBackend {
         hoponBackendRequest("users/authenticate", Request.Method.POST, credentials, new LoginResponse(), resultListener, false);
     }
 
-    public void userDetails(String id, HoponBackendResponse<UserDetails> resultListener)
+    public void userDetails(Integer id, HoponBackendResponse<UserDetails> resultListener)
     {
-        hoponBackendRequest("users/"+id, Request.Method.GET, null, new UserDetails(), resultListener, true);
+        hoponBackendRequest("users/"+id.toString(), Request.Method.GET, null, new UserDetails(), resultListener, true);
     }
-
 
 }
