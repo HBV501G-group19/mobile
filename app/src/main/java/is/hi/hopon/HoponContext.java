@@ -7,6 +7,8 @@ import android.util.Log;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.util.UUID;
+
 import is.hi.hopon.backend.HoponBackend;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
 
@@ -17,6 +19,13 @@ public class HoponContext {
         private String username;
         private String  id; // TODO: Change to int when fixed on backend
         private String token;
+
+        ////////////////////////
+        /// MOCKS //////////////
+        public UUID getUUID(){
+            return UUID.randomUUID();
+        }
+        //////////////////////////////////////
 
         public LoggedUser(String id, String username, String token)
         {

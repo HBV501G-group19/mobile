@@ -14,7 +14,6 @@ import is.hi.hopon.R;
 import is.hi.hopon.backend.HoponBackend;
 import is.hi.hopon.backend.Models.Login.LoginRequest;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
-import is.hi.hopon.backend.Models.Login.UserDetails;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
@@ -46,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                         HoponContext.getInstance().logIn(response);
                         finish();
                     }
+
                     @Override
                     public void onError(Exception error) {
                         login.setEnabled(true);

@@ -1,0 +1,2 @@
+rootProject.name='Tapper'
+include ':app'

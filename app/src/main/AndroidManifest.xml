@@ -29,6 +29,8 @@
             android:name=".ui.authentication.login.LoginActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".ui.message.MessageBoardActivity" />
+        <activity android:name=".ui.message.MultipleFragmentsActivity" />
     </application>
 
 </manifest>

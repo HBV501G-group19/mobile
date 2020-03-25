@@ -1,6 +1,8 @@
 package is.hi.hopon.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -8,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import is.hi.hopon.HoponContext;
 import is.hi.hopon.R;
+import is.hi.hopon.ui.message.MessageBoardActivity;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -32,7 +36,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         switch(position) {
             case 0: return PlaceholderFragment.newInstance(0); // TODO: change this to rides fragment
             case 1: return MapFragment.newInstance();
-            case 2: return PlaceholderFragment.newInstance(2); // TODO: change this to messages fragment
+            case 2:
+                    Intent intent = MessageBoardActivity.newIntent(mContext.getApplicationContext(),
+                            HoponContext.getInstance().getUser().getUUID());
+
+                    mContext.startActivity(intent);
+                return  PlaceholderFragment.newInstance(1);
         }
         return PlaceholderFragment.newInstance(position + 1);
     }
