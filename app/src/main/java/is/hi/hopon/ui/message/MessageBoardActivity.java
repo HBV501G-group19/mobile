@@ -18,7 +18,7 @@ import is.hi.hopon.R;
 public class MessageBoardActivity extends MultipleFragmentsActivity
         implements MessageCreationFragment.Callbacks{
 
-    private static UUID mUUID;
+    private static UUID mUUID; // This might be needed, it is to store the user's id.
 
     // This method fires up the activity, it is called from
     // the SectionsPagerAdapter class in the ui.main package.
