@@ -69,27 +69,13 @@ public class MessageCreationFragment extends Fragment {
 
         mButton = view.findViewById(R.id.message_board_button);
         mButton.setOnClickListener(v -> {
-            String tmp = mEditText.getText().toString();
-            boolean isValid = false;
+            MessageEntity message = new MessageEntity(mEditText.getText().toString());
+            MessageLab.get().addMessage(message);
 
-            // Checking if the text message consist of
-            // whitespaces only, which is not a valid string.
-            // Also, if the text has the length zero,
-            // then the string is not valid.
-            for(int i = 0; i < tmp.length(); i++){
-                isValid = tmp.charAt(i) != ' ';
-            }
+            mCallbacks.onViewUpdate();
 
-            // Only create a new message if the text string is valid.
-            if(isValid) {
-                MessageEntity message = new MessageEntity(mEditText.getText().toString());
-                MessageLab.get().addMessage(message);
-
-                mCallbacks.onViewUpdate();
-
-                mEditText.getText().clear();
-                mEditText.clearFocus();
-            }
+            mEditText.getText().clear();
+            mEditText.clearFocus();
         });
 
         return view;

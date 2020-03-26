@@ -1,0 +1,7 @@
+#Wed Mar 25 15:33:46 GMT 2020
+base.0=/home/hjortur/Desktop/Vor_20/Hug_2/Hopon/Hopon/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/hjortur/Desktop/Vor_20/Hug_2/Hopon/Hopon/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

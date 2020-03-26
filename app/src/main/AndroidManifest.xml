@@ -31,7 +31,6 @@
         </activity>
         <activity android:name=".ui.message.MessageBoardActivity" />
         <activity android:name=".ui.message.MultipleFragmentsActivity" />
-        <activity android:name=".ui.ride.rideActivity" />
     </application>
 
 </manifest>
