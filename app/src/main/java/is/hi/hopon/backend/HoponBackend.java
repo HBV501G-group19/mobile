@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.maps.model.LatLng;
 
 
 import org.json.JSONArray;
@@ -27,7 +28,6 @@ import is.hi.hopon.backend.Models.Login.LoginRequest;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
 import is.hi.hopon.backend.Models.Login.UserDetails;
 import is.hi.hopon.backend.Models.Ride;
-import is.hi.hopon.backend.Models.RidePoint;
 
 public class HoponBackend {
     private String url;
@@ -163,14 +163,15 @@ public class HoponBackend {
 
                     Integer driver = entry.getInt("driver");
                     if(!(entry.getInt("driver") == myId || passengers.contains(myId))) continue;
-
+                    JSONArray jsonOrig = entry.getJSONObject("origin").getJSONArray("coordinates");
+                    JSONArray jsonDest = entry.getJSONObject("destination").getJSONArray("coordinates");
                     rideList.add(new Ride(
                        entry.getInt("driver"),
                        entry.getString("departureTime"),
                        entry.getInt("duration"),
-                       new RidePoint(entry.getJSONObject("origin").getJSONArray("coordinates")),
-                       new RidePoint(entry.getJSONObject("destination").getJSONArray("coordinates")),
-                       new ArrayList<RidePoint>(),
+                       new LatLng(jsonOrig.getDouble(0), jsonOrig.getDouble(1)),
+                       new LatLng(jsonDest.getDouble(0), jsonDest.getDouble(1)),
+                       new ArrayList<LatLng>(),
                        entry.getInt("freeSeats"),
                        passengers
                     ));
