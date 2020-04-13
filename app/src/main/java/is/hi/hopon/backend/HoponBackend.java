@@ -2,14 +2,12 @@ package is.hi.hopon.backend;
 
 
 
-import android.graphics.Point;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -18,11 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +27,7 @@ import is.hi.hopon.backend.Models.Login.LoginRequest;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
 import is.hi.hopon.backend.Models.Login.UserDetails;
 import is.hi.hopon.backend.Models.Ride;
+import is.hi.hopon.backend.Models.RidePoint;
 
 public class HoponBackend {
     private String url;
@@ -164,18 +160,17 @@ public class HoponBackend {
                     for(int p=0; p<jsonPassengers.length();p++){
                         passengers.add(jsonPassengers.getInt(p));
                     }
-                    JSONArray jsonOrigin = entry.getJSONObject("origin").getJSONArray("coordinates");
-                    JSONArray jsonDest = entry.getJSONObject("destination").getJSONArray("coordinates");
-                    Integer driver = entry.getInt("driver");
 
+                    Integer driver = entry.getInt("driver");
                     if(!(entry.getInt("driver") == myId || passengers.contains(myId))) continue;
 
                     rideList.add(new Ride(
                        entry.getInt("driver"),
                        entry.getString("departureTime"),
                        entry.getInt("duration"),
-                       new Point(jsonOrigin.getInt(0), jsonOrigin.getInt(1)),
-                       new Point(jsonDest.getInt(0), jsonDest.getInt(1)),
+                       new RidePoint(entry.getJSONObject("origin").getJSONArray("coordinates")),
+                       new RidePoint(entry.getJSONObject("destination").getJSONArray("coordinates")),
+                       new ArrayList<RidePoint>(),
                        entry.getInt("freeSeats"),
                        passengers
                     ));

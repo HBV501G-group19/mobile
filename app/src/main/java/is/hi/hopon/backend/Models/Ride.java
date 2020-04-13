@@ -1,20 +1,18 @@
 package is.hi.hopon.backend.Models;
 
-import android.graphics.Point;
-
-import java.util.Date;
 import java.util.List;
 
 public class Ride {
+
     private Integer driver;
     private String departure_time;
     private Integer duration;
-    private Point origin;
-    private Point destination;
+    private RidePoint origin;
+    private RidePoint destination;
     private Integer seats;
     private List<Integer> passengers;
 
-    public Ride(Integer driver, String departure_time, Integer duration, Point origin, Point destination, Integer seats, List<Integer> passengers)
+    public Ride(Integer driver, String departure_time, Integer duration, RidePoint origin, RidePoint destination, List<RidePoint> route, Integer seats, List<Integer> passengers)
     {
         this.driver = driver;
         this.departure_time = departure_time;
@@ -38,11 +36,11 @@ public class Ride {
         return duration;
     }
 
-    public Point getOrigin() {
+    public RidePoint getOrigin() {
         return origin;
     }
 
-    public Point getDestination() {
+    public RidePoint getDestination() {
         return destination;
     }
 
