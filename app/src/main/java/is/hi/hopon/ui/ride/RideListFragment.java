@@ -1,9 +1,11 @@
-package is.hi.hopon.ui.main;
+package is.hi.hopon.ui.ride;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,19 +14,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import is.hi.hopon.HoponContext;
 import is.hi.hopon.R;
+import is.hi.hopon.ui.authentication.login.LoginActivity;
 import is.hi.hopon.ui.main.PageViewModel;
+import is.hi.hopon.ui.message.MessageBoardActivity;
+
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class RideListFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static RideListFragment newInstance(int index) {
+        RideListFragment fragment = new RideListFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -46,12 +52,13 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
-        final TextView textView = root.findViewById(R.id.section_label);
-        pageViewModel.getText().observe(this, new Observer<String>() {
+        View root = inflater.inflate(R.layout.activity_ridelist, container, false);
+        Button button = root.findViewById(R.id.ridelistbutton);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), RideActivity.class);
+                startActivity(intent);
             }
         });
         return root;

@@ -12,7 +12,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import is.hi.hopon.HoponContext;
 import is.hi.hopon.R;
+import is.hi.hopon.ui.message.ConversationListFragment;
 import is.hi.hopon.ui.message.MessageBoardActivity;
+import is.hi.hopon.ui.main.PlaceholderFragment;
+import is.hi.hopon.ui.ride.RideListFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -34,14 +37,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         switch(position) {
-            case 0: return PlaceholderFragment.newInstance(0); // TODO: change this to rides fragment
+            case 0: return RideListFragment.newInstance(0);
             case 1: return MapFragment.newInstance();
-            case 2:
-                    Intent intent = MessageBoardActivity.newIntent(mContext.getApplicationContext(),
-                            HoponContext.getInstance().getUser().getUUID());
-
-                    mContext.startActivity(intent);
-                return  PlaceholderFragment.newInstance(1);
+            case 2: return ConversationListFragment.newInstance(HoponContext.getInstance().getUser().getId());
+//                    Intent intent = MessageBoardActivity.newIntent(mContext.getApplicationContext(),
+//                            HoponContext.getInstance().getUser().getUUID());
+//
+//                    mContext.startActivity(intent);
+//                return  PlaceholderFragment.newInstance(1);
         }
         return PlaceholderFragment.newInstance(position + 1);
     }

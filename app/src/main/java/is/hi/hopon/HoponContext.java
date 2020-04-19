@@ -7,12 +7,27 @@ import android.util.Log;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 import is.hi.hopon.backend.HoponBackend;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
 
 public class HoponContext {
+
+    private HashMap<String, Object> cache = new HashMap<>();
+
+    public HashMap<String, Object> getCache() { return cache; }
+
+    public void addToCache(String key, Object obj) {
+        cache.put(key, obj);
+    }
+
+    public Object popFromCache(String key) {
+        Object obj = cache.get(key);
+        cache.remove(key);
+        return obj;
+    }
 
     public class LoggedUser
     {
@@ -35,7 +50,7 @@ public class HoponContext {
         }
 
         public String getUsername(){ return username; }
-        public String getId() { return id; }
+        public int getId() { return Integer.parseInt(id); }
         public String getToken() { return token; }
     }
 
