@@ -9,11 +9,14 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.android.volley.Response;
+
 import is.hi.hopon.HoponContext;
 import is.hi.hopon.R;
 import is.hi.hopon.backend.HoponBackend;
 import is.hi.hopon.backend.Models.Login.LoginRequest;
 import is.hi.hopon.backend.Models.Login.LoginResponse;
+import is.hi.hopon.backend.Models.Login.UserDetails;
 
 public class LoginActivity extends AppCompatActivity {
     @Override

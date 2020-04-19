@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ride.rideActivity">
+    tools:context=".ui.ride.RideActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ride_view_header"
@@ -101,22 +101,22 @@
         app:layout_constraintStart_toEndOf="parent"
         android:orientation="vertical">
 
-        <com.google.android.gms.maps.MapView
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/ride_view_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="0dp"
+            tools:context=".MapsActivity" />
 
-        <!--
-             We should put a conversation list fragment here, we can reuse that
-             component from the conversation list view
-         -->
-        <ListView
+        <fragment
             android:id="@+id/ride_view_convolist"
+            android:name="is.hi.hopon.ui.message.ConversationListFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="10dp">
-        </ListView>
+            android:padding="10dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
